@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<center><h1 style="color:purple;"><b>BoOk WoRlD</b></h1></center>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-xl" >
+        <marquee behavior="alternate" direction="right" style="color:white; bgcolor:pink;"><b>Avail 10% Discount above 500 Rs End Date 25 DEC</b></marquee>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-xl">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowns" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        All Category
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?category=Novel">Novel</a>
+                        <a class="dropdown-item" href="?category=Fantasy">Fantasy</a>
+                        <a class="dropdown-item" href="?category=Short Stories">Short Stories</a>
+                        <a class="dropdown-item" href="?category=Biography">Biography</a>
+                        <a class="dropdown-item" href="?category=Humour">Humour</a>
+                        <a class="dropdown-item" href="?category=Mistery">Mistery</a>
+                        <a class="dropdown-item" href="?category=Thriller">Thriller</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0"  method="POST">
+                        {% csrf_token %}
+                        <input  type="text" name="bookname"  placeholder="Search.." aria-label="Search">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+                <li class="nav-item About Us">
+                    <a class="nav-link" href="http://127.0.0.1:8000/About"><b>About Us</b></a>
+                </li>
+                <li class="nav-item Contact">
+                  <button onclick="myfunction()"><b>Contact</b></button>
+                  <script>
+                      function myfunction()
+                      {
+                       alert("BOOKWORLD,Near White Street,Kaloor. Phno:1224454524");
+                       }
+                  </script>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Login
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="login">Admin</a>
+                        <a class="dropdown-item" href="login_author">Author</a>
+                        <a class="dropdown-item" href="login_user">User</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdowns" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Price
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="?price=200">Under 200</a>
+                        <a class="dropdown-item" href="?price=500">Under 500</a>
+                        <a class="dropdown-item" href="?price=1000">Under 1000</a>
+                        <a class="dropdown-item" href="?price=2000">Under 2000</a>
+                        <a class="dropdown-item" href="?price=2000">Above 2000</a>
+
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav><br>
+<header class="masthead bg-info ">
+<h3 style="color:blueviolet" align="center"><b>BIGGEST BOOKSTORE <br> IN INDIA</b></h3>
+<p style="color:blueviolet" align="center"> We are the best seller in india,1000+ books in stock</p><br><br>
+</header >
+<div class="row row-cols-2 row-cols-lg-3">
+    {% for x in book %}
+    <div class="card" style="width: 12rem; ">
+       <img src="media/images/{{x.upload_image}}" width="120" height="150" class="card-img-top" >
+       <div class="card-body">
+           <p class="card-text text-black">{{x.bookname}}<br>Written by:{{x.author}}<br><b>{{x.price}}</b><br><a href="view_book">View Book</a></p>
+       </div>
+    </div>
+    {% endfor %}
+    </div><br>
+<footer class="masthead bg-info ">
+<h6 align="center">About Us</h6>
+<h3 style="color:darkgreen" align="center">BIGGEST BOOK STORE<br>IN INDIA</h3>
+<p align="center">Book world is a Kerala
+    based academic publishing house. We deal in children’s books and guidebooks for secondary classes. Our mission is to enlighten every nook and corner with knowledge. We are moving ahead to accomplish our mission with newer products every day. We look forward to be your companion, paving your way through hardships to success.</p>
+ </footer>
+<div class="masthead bg-black text-white text-center">
+<h1 align="center">Contact</h1>
+        <p>SR Ecommerce Factory Pvt. Ltd.,<br>
+           2/14, ground floor , Ansari road ,<br>
+            Daryaganj Delhi 110002</p><br>
+
+ <h3>Email:</h3>customerservice@bookswagon.com
+ <h3>Phno:</h3>011-41521153,
+        <h3>Time:</h3>Closed on Sundays and Public Holidays.
+       9:00 am to 6:00 pm
+    </div>
+</body>
+</html>

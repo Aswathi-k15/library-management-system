@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+</head>
+<body>
+<center><h1 style="color:purple;"><b>BoOk WoRlD</b></h1></center>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-xl">
+        <marquee behavior="alternate" direction="right" style="color:white; bgcolor:pink;"><b>Avail 10% Discount above 500 Rs End Date 25 DEC</b></marquee>
+    </div>
+
+
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <b>All Category</b>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Novel</a>
+          <a class="dropdown-item" href="#">Fantasy</a>
+          <a class="dropdown-item" href="#">Short Stories</a>
+          <a class="dropdown-item" href="#">Biography</a>
+          <a class="dropdown-item" href="#">Humour</a>
+            <a class="dropdown-item" href="#">Mistery</a>
+          <a class="dropdown-item" href="#">Thriller</a>
+        </div>
+      </li>
+                  <form class="example" action="search.html" method="GET" style="margin:auto;width:900px;" align="center">
+                    {% csrf_token %}
+                  <input type="text" placeholder="Search..">
+                  <button type="submit">Search</button>
+                </form>
+        <li class="nav-item About Us">
+            <a class="nav-link" href="http://127.0.0.1:8000/About"><b>About Us</b></a>
+                </li>
+         <li class="nav-item Contact">
+                  <button onclick="myfunction()"><b>Contact</button>
+                  <script>
+                      function myfunction()
+                      {
+                       alert("BOOKWORLD,Near White Street,Kaloor. Phno:1224454524");
+                       }
+                  </script>
+                </li>
+        <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+    </ul></div>
+
+</nav>
+<header class="responsive">
+    <img src="media/images/writer.jpg" width="1400" height="500">
+    <div class="carousel-caption" style="margin-bottom:200px;">
+    <a href="add_book" style="margin-top:5px;">ADD BOOK</a>
+    </div>
+</header>
+<div class="masthead bg-black text-white text-center">
+<h1 align="center">Contact</h1>
+        <p>SR Ecommerce Factory Pvt. Ltd.,<br>
+           2/14, ground floor , Ansari road ,<br>
+            Daryaganj Delhi 110002</p><br>
+
+ <h3>Email:</h3>customerservice@bookswagon.com
+ <h3>Phno:</h3>011-41521153,
+        <h3>Time:</h3>Closed on Sundays and Public Holidays.
+       9:00 am to 6:00 pm
+    </div>
+
+
+
+</body>
+</html>
